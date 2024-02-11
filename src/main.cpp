@@ -1,24 +1,12 @@
-#include <iostream>
+#include <cstdint>
 
-#include "addition.h"
-#include "division.h"
-#include "print_result.h"
 #include "main.h"
+#include "memlib.h"
 
 int main(int argc, char const *argv[]) {
-  float first_no, second_no, result_add, result_div;
-
-  std::cout << "Enter first number\t";
-  std::cin >> first_no;
-  std::cout << "Enter second number\t";
-  std::cin >> second_no;
-
-  result_add = addition(first_no, second_no);
-  result_div = division(first_no, second_no);
-
-  print_result("Addition", result_add);
-  print_result("Division", result_div);
   println("Hello World!!!");
+  uint8_t *ptr = new uint8_t();
+  MemClean(ptr);
 
   return 0;
 }

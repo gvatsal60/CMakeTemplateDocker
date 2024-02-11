@@ -8,7 +8,7 @@ set(SRC src)
 set(INC inc)
 set(LIB lib)
 set(EXEC_BIN_NAME debugBin)
-set(REQUIRED_LIB mathlib printlib) # Change accordingly with required libraries
+set(REQUIRED_LIB memlib) # Change accordingly with required libraries
 
 file(
   GLOB V_GLOB
