@@ -1,0 +1,9 @@
+FROM alpine as base
+
+LABEL MAINTAINER="gvatsal60"
+LABEL DESCRIPTION="Build Environment"
+
+RUN apk update && \
+  apk upgrade && \
+  # Install Dev Tools
+  apk add build-base cmake gtest
