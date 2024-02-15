@@ -21,3 +21,5 @@ RUN set -x \
   && mkdir build \
   && cd build && cmake3 .. \
   && make -j8 && make install DESDIR=/opt/gtest
+
+ENTRYPOINT ["/bin/bash", "-c"]
