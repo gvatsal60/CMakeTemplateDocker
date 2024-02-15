@@ -44,7 +44,7 @@ debug:
 
 # Code Run
 run:
-	@./$(BUILD)/$(DEBUG_EXEC)
+	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_FULL_NAME) ./$(DEBUG_EXEC)
 
 # Code Test
 test: debug
