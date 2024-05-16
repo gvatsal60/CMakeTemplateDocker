@@ -4,10 +4,12 @@
 # Git
 .git/*
 .gitignore
-
-# Dockerfiles
-DockerFile
-DockerFile.alpine
+LICENSE
+README.md
 
 # Makefiles
 Makefile
+docker.mk
+
+# Jenkins
+Jenkinsfile

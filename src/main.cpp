@@ -1,7 +1,7 @@
 #include <cstdint>
 
-#include "main.h"
 #include "memlib.h"
+#include "utils.h"
 
 int main(int argc, char const *argv[]) {
   println("Hello World!!!");

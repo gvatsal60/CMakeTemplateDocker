@@ -1,54 +1,54 @@
+# Include configuration files
+include cfg/docker.mk
+
 # Commands
-CMAKE:=cmake
-MKDIR:=mkdir -p
-RMDIR:=rm -rf
+CMAKE := cmake
+MKDIR := mkdir -p
+RMDIR := rm -r
+
+# Define the path to the Dockerfile
+DOCKER_FILE_PATH := dockerfiles/Dockerfile.alpine
 
 # Executables
-DEBUG_EXEC:=debugBin
-RELEASE_EXEC:=releaseBin
+DEBUG_EXEC := debugBin
+RELEASE_EXEC := releaseBin
 
 # Build Directory
-BUILD:=build
-
-# Docker/Podman Specific
-DOCKER_HOST:=podman
-DOCKER_UID ?= $(shell id -u)
-DOCKER_GID ?= $(shell id -g)
-DOCKER_IMG_NAME:=cpp_template
-DOCKER_IMG_VER:=1
-DOCKER_IMG_FULL_NAME:=$(DOCKER_IMG_NAME):$(DOCKER_IMG_VER)
-DOCKER_WORK_DIR:=/app
-DOCKER_VOL:= --mount type=bind,source=.,target=$(DOCKER_WORK_DIR)
-DOCKER_USER_ARG:= --user $(DOCKER_UID):$(DOCKER_GID)
-DOCKER_ARG:= --init --rm -it $(DOCKER_VOL) -w $(DOCKER_WORK_DIR)/$(BUILD)
+BUILD := build
 
 # Build Command (i.e. Used to build project)
-BUILD_CMD:="$(CMAKE) .. && $(MAKE)"
+BUILD_CMD:="cd $(BUILD) && $(CMAKE) .. && $(MAKE)"
+TEST_CMD := "$(CMAKE)" # TODO Yet to decide
+RUN_CMD := "./$(BUILD)/$(DEBUG_EXEC)"
+CLEAN_CMD := "$(RMDIR) $(BUILD)/**"
 
 # Targets
-# all: buildImg debug
-all: buildAlpine debug
+all: build-image
 
-# To build image
-buildImg:
-	@$(DOCKER_HOST) image build -t $(DOCKER_IMG_FULL_NAME) .
+# Target: build-image
+# Description: Builds the Docker image using the specified Dockerfile
+.PHONY: build-image
+build-image:
+	@$(DOCKER_HOST) image build -t $(DOCKER_IMG_NAME) -f $(DOCKER_FILE_PATH) $(DOCKER_BUILD_CONTEXT)
 
-# To build Alpine Image
-buildAlpine:
-	@$(DOCKER_HOST) image build -t $(DOCKER_IMG_FULL_NAME) -f Dockerfile.alpine .
-
-# Code Compilation
-debug:
+# Code Build
+docker-build: build-image
 	@$(MKDIR) $(BUILD)
-	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_FULL_NAME) $(BUILD_CMD)
+	$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(BUILD_CMD)
 
-# Code Run
-run:
-	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_FULL_NAME) ./$(DEBUG_EXEC)
+# Test code
+docker-test: build-image
+	@$(MKDIR) $(BUILD)
+	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(TEST_CMD)
 
-# Code Test
-test: debug
+# Run code
+docker-run: build-image
+	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(RUN_CMD)
+
+# Clean
+docker-clean: build-image
+	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(CLEAN_CMD)
 
 # Code Cleanup
 clean:
-	$(RMDIR) $(BUILD)/**
+	@$(RMDIR) $(BUILD)/**

@@ -1,9 +1,0 @@
-FROM alpine as base
-
-LABEL MAINTAINER="gvatsal60"
-LABEL DESCRIPTION="Build Environment"
-
-# Install Dev Tools
-RUN apk add --no-cache build-base make cmake gtest
-
-ENTRYPOINT ["/bin/ash", "-c"]
