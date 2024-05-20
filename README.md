@@ -1,4 +1,11 @@
-**CMakeTemplateDocker**
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://img.shields.io/github/license/gvatsal60/CMakeTemplateDocker)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/gvatsal60/CMakeTemplateDocker/_.yml)
+![GitHub pull-requests](https://img.shields.io/github/issues-pr/gvatsal60/CMakeTemplateDocker)
+![GitHub Issues](https://img.shields.io/github/issues/gvatsal60/CMakeTemplateDocker)
+![GitHub forks](https://img.shields.io/github/forks/gvatsal60/CMakeTemplateDocker)
+![GitHub stars](https://img.shields.io/github/stars/gvatsal60/CMakeTemplateDocker)
+
+# CMakeTemplateDocker
 
 ## Overview
 Welcome to CMakeTemplateDocker! This repository provides a template for setting up a C++ project using CMake within a Docker container. This template aims to streamline the process of setting up a development environment for C++ projects, ensuring consistency and ease of use across different platforms.
