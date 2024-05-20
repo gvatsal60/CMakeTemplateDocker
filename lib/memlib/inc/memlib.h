@@ -16,4 +16,4 @@ static void MemArrClean(const T* const arg) {
   delete[] arg;
 }
 
-#endif  // _MEMLIB_H_
+#endif
