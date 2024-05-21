@@ -12,13 +12,16 @@ DOCKER_FILE_PATH := dockerfiles/Dockerfile.alpine
 # Executables
 DEBUG_EXEC := debugBin
 RELEASE_EXEC := releaseBin
+TEST_EXEC := testBin
 
 # Build Directory
 BUILD := build
+TEST := test
 
 # Build Command (i.e. Used to build project)
-BUILD_CMD:="cd $(BUILD) && $(CMAKE) .. && $(MAKE)"
-TEST_CMD := "cd $(BUILD) && $(CMAKE) .. && $(MAKE)" # TODO Yet to decide
+CMAKE_BUILD_CMD := cd $(BUILD) && $(CMAKE) .. && $(MAKE)
+BUILD_CMD := "$(CMAKE_BUILD_CMD)"
+TEST_CMD := "$(CMAKE_BUILD_CMD) && ./$(TEST)/$(TEST_EXEC)"
 RUN_CMD := "./$(BUILD)/$(DEBUG_EXEC)"
 CLEAN_CMD := "$(RMDIR) $(BUILD)/**"
 
