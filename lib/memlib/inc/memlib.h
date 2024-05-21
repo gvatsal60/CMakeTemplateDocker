@@ -3,17 +3,18 @@
 #define _MEMLIB_H_
 
 #include <cassert>
+#include <memory>
 
 template <typename T>
 static void MemClean(const T* const arg) {
   assert(arg != nullptr);
-  delete arg;
+  std::unique_ptr<const T> argPtr(arg);
 }
 
 template <typename T>
 static void MemArrClean(const T* const arg) {
   assert(arg != nullptr);
-  delete[] arg;
+  std::unique_ptr<const T[]> argPtr(arg);
 }
 
 #endif

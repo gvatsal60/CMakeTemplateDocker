@@ -18,7 +18,7 @@ BUILD := build
 
 # Build Command (i.e. Used to build project)
 BUILD_CMD:="cd $(BUILD) && $(CMAKE) .. && $(MAKE)"
-TEST_CMD := "$(CMAKE)" # TODO Yet to decide
+TEST_CMD := "cd $(BUILD) && $(CMAKE) .. && $(MAKE)" # TODO Yet to decide
 RUN_CMD := "./$(BUILD)/$(DEBUG_EXEC)"
 CLEAN_CMD := "$(RMDIR) $(BUILD)/**"
 
@@ -34,7 +34,7 @@ build-image:
 # Code Build
 docker-build: build-image
 	@$(MKDIR) $(BUILD)
-	$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(BUILD_CMD)
+	@$(DOCKER_HOST) container run $(DOCKER_ARG) $(DOCKER_IMG_NAME) $(BUILD_CMD)
 
 # Test code
 docker-test: build-image
