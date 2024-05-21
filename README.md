@@ -1,5 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://img.shields.io/github/license/gvatsal60/CMakeTemplateDocker)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/gvatsal60/CMakeTemplateDocker/_.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=gvatsal60_CMakeTemplateDocker&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=gvatsal60_CMakeTemplateDocker)
 ![GitHub pull-requests](https://img.shields.io/github/issues-pr/gvatsal60/CMakeTemplateDocker)
 ![GitHub Issues](https://img.shields.io/github/issues/gvatsal60/CMakeTemplateDocker)
 ![GitHub forks](https://img.shields.io/github/forks/gvatsal60/CMakeTemplateDocker)
