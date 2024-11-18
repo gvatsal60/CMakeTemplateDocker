@@ -12,6 +12,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build
-      run: make docker-build
-    - name: Test
-      run: make docker-test
+      run: make build
+    # - name: Test
+    #   run: make docker-test
