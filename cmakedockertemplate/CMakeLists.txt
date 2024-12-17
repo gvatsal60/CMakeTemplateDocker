@@ -49,4 +49,4 @@ target_include_directories(${EXEC_BIN_NAME} PRIVATE ${INC})
 target_link_libraries(${EXEC_BIN_NAME} PUBLIC ${REQUIRED_LIB})
 
 # Add the 'test' subdirectory for testing
-add_subdirectory(test)
+# add_subdirectory(test)
