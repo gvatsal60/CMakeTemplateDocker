@@ -1,7 +1,7 @@
 {
   "build": {
     "context": "${localWorkspaceFolder}/dockerfiles",
-    "dockerfile": "${localWorkspaceFolder}/dockerfiles/Dockerfile.alpine"
+    "dockerfile": "${localWorkspaceFolder}/dockerfiles/Dockerfile.debug"
   },
   "capAdd": [
     "SYS_PTRACE"
