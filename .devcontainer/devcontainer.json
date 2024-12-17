@@ -1,7 +1,7 @@
 {
   "build": {
-    "context": "${containerWorkspaceFolder}/dockerfiles",
-    "dockerfile": "${containerWorkspaceFolder}/dockerfiles/Dockerfile.alpine"
+    "context": "${localWorkspaceFolder}/dockerfiles",
+    "dockerfile": "${localWorkspaceFolder}/dockerfiles/Dockerfile.alpine"
   },
   "capAdd": [
     "SYS_PTRACE"
@@ -9,19 +9,19 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "streetsidesoftware.code-spell-checker",
-        "esbenp.prettier-vscode",
-        "Gruntfuggly.todo-tree",
         "DavidAnson.vscode-markdownlint",
-        "gurumukhi.selected-lines-count",
-        "bradzacher.vscode-copy-filename",
+        "Gruntfuggly.todo-tree",
         "PKief.material-icon-theme",
-        "timonwong.shellcheck",
-        "foxundermoon.shell-format",
-        "usernamehw.errorlens",
-        "mads-hartmann.bash-ide-vscode",
         "SonarSource.sonarlint-vscode",
-        "Tyriar.sort-lines"
+        "Tyriar.sort-lines",
+        "bradzacher.vscode-copy-filename",
+        "esbenp.prettier-vscode",
+        "foxundermoon.shell-format",
+        "gurumukhi.selected-lines-count",
+        "mads-hartmann.bash-ide-vscode",
+        "streetsidesoftware.code-spell-checker",
+        "timonwong.shellcheck",
+        "usernamehw.errorlens"
       ],
       "settings": {
         "[dockercompose]": {

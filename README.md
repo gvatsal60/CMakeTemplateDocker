@@ -17,7 +17,7 @@ Before getting started, ensure that you have the following prerequisites install
 - Git: Install Git if you haven't already from [Git's official website](https://git-scm.com/downloads).
 - Make:
   - **Linux:** If you're on a Linux system, Make might already be installed. If not, you can install it using your package manager. For example, on Ubuntu, you can install Make with the following command:
-    ```
+    ```sh
     sudo apt-get install make
     ```
   - **Windows:** For Windows users, Make is not typically installed by default. You can install it using MinGW, which provides a Unix-like environment on Windows along with a collection of GNU utilities. Follow these steps to install Make on Windows using MinGW:
@@ -29,13 +29,13 @@ Before getting started, ensure that you have the following prerequisites install
 Follow these steps to get started with CMakeTemplateDocker:
 
 1. **Clone the Repository:**
-   ```
+   ```sh
    git clone https://github.com/yourusername/CMakeTemplateDocker.git
    cd CMakeTemplateDocker
    ```
 
 2. **Build the Docker Image:**
-   ```
+   ```sh
    make build-image
    ```
 
@@ -43,22 +43,22 @@ Follow these steps to get started with CMakeTemplateDocker:
    Once inside the Docker container, you'll find yourself in the `$PROJECT_NAME` directory, where the CMake project is set up.
 
 4. **Build the Project:**
-   ```
+   ```sh
    make docker-build
    ```
 
 5. **Run the Executable:**
-   ```
+   ```sh
    make docker-run
    ```
 
 6. **Test the Project:**
-   ```
+   ```sh
    make docker-test
    ```
 
 7. **Clean the Project:**
-   ```
+   ```sh
    make docker-clean
    ```
 
