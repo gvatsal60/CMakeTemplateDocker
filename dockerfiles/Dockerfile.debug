@@ -12,7 +12,7 @@ RUN apt-get update \
   && apt-get -y install --no-install-recommends \
   bear \
   valgrind \
-  && vcpkg install gtest
+  && vcpkg install gtest \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
