@@ -4,14 +4,16 @@ include cfg/.env
 .PHONY: all test clean
 
 # Commands
-CMAKE := cmake
+CMAKE := /usr/bin/cmake
 MKDIR := mkdir -p
 RMDIR := rm -rf
 
+CMAKE_FLAGS := -DCMAKE_BUILD_TYPE:STRING=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE --no-warn-unused-cli
+
 # Build Commands
-BUILD_TOOL_CMD := $(CMAKE) -S $(TOP_DIR) -B $(BUILD_DIR) && $(CMAKE) --build $(BUILD_DIR) --parallel $(shell nproc)
+BUILD_TOOL_CMD := $(CMAKE) $(CMAKE_FLAGS) -S $(TOP_DIR) -B $(BUILD_DIR) && $(MAKE) -j$(shell nproc) -C $(BUILD_DIR)
 BUILD_CMD := $(BUILD_TOOL_CMD)
 TEST_CMD := ./$(TEST_DIR)/$(TEST_EXEC)
 RUN_CMD := ./$(BUILD_DIR)/$(DEBUG_EXEC)
-CLEAN_CMD := $(RMDIR) $(BUILD_DIR)/**
+CLEAN_CMD := $(RMDIR) $(BUILD_DIR)
 # SONAR_CMD := $(BUILD_TOOL_CMD) sonar
